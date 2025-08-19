@@ -86,7 +86,7 @@ struct HomeView: View {
                     }
                 }
             }
-            .navigationTitle("FastMktp")
+            .navigationTitle("Fast Marketplace")
             .navigationBarTitleDisplayMode(.large)
             .sheet(isPresented: $showingServiceDetail) {
                 if let service = selectedService {
