@@ -23,7 +23,7 @@ struct ProfileView: View {
                             .foregroundColor(.blue)
                         
                         VStack(alignment: .leading, spacing: 4) {
-                            Text(viewModel.user.name)
+                            Text(viewModel.user.name!)
                                 .font(.title2)
                                 .fontWeight(.bold)
                             
@@ -33,7 +33,7 @@ struct ProfileView: View {
                                     .foregroundColor(.secondary)
                             }
                             
-                            Text(viewModel.user.location)
+                            Text(viewModel.user.location!)
                                 .font(.body)
                                 .foregroundColor(.secondary)
                         }
@@ -174,7 +174,7 @@ struct MyServiceCard: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
-                Text(service.category)
+                Text(service.category!)
                     .font(.caption)
                     .fontWeight(.medium)
                     .padding(.horizontal, 8)
@@ -191,11 +191,11 @@ struct MyServiceCard: View {
                     .foregroundColor(.green)
             }
             
-            Text(service.title)
+            Text(service.title!)
                 .font(.headline)
                 .fontWeight(.semibold)
             
-            Text(service.serviceDescription)
+            Text(service.serviceDescription!)
                 .font(.body)
                 .foregroundColor(.secondary)
                 .lineLimit(2)
@@ -243,7 +243,7 @@ struct RequestCard: View {
             }
             
             if let service = request.service {
-                Text(service.title)
+                Text(service.title!)
                     .font(.headline)
                     .fontWeight(.semibold)
                 
@@ -252,7 +252,7 @@ struct RequestCard: View {
                     .foregroundColor(.secondary)
             }
             
-            if !request.message.isEmpty {
+            if !request.message!.isEmpty {
                 Text("Mensagem: \(request.message)")
                     .font(.body)
                     .foregroundColor(.secondary)

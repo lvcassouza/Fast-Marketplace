@@ -1,8 +1,8 @@
 //
-//  AddServiceViewModel.swift
-//  FastMktp
+//  AddServiceViewModel.swift
+//  FastMktp
 //
-//  Created by Lucas Souza on 18/08/25.
+//  Created by Lucas Souza on 18/08/25.
 //
 
 import Foundation
@@ -26,14 +26,20 @@ class AddServiceViewModel: ObservableObject {
     let categories = ["Carpintaria", "Limpeza", "Educação", "Pet Care", "Jardinagem", "Alimentação"]
     
     init() {
+        // CORREÇÃO AQUI: Use `guard let` para desembrulhar o valor de forma segura
         let user = coreDataManager.getCurrentUser()
-        self.providerName = user.name
+        guard let name = user.name else {
+            // Se o nome for nil, você pode atribuir uma string padrão ou lidar com o erro
+            self.providerName = "Usuário Desconhecido"
+            return
+        }
+        self.providerName = name
     }
     
     var isFormValid: Bool {
-        !title.isEmpty && 
-        !description.isEmpty && 
-        !suggestedPrice.isEmpty && 
+        !title.isEmpty &&
+        !description.isEmpty &&
+        !suggestedPrice.isEmpty &&
         !providerName.isEmpty &&
         Double(suggestedPrice) != nil
     }

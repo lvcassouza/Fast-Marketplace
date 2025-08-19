@@ -1,33 +1,12 @@
 //
-//  Service.swift
+//  Service+Mock.swift
 //  FastMktp
 //
-//  Created by Lucas Souza on 18/08/25.
+//  Created by Lucas Souza on 19/08/25.
 //
 
 import Foundation
 import CoreData
-
-@objc(Service)
-public class Service: NSManagedObject {
-    
-}
-
-// MARK: - Service Extensions
-extension Service {
-    
-    // Computed properties para facilitar o uso
-    var formattedPrice: String {
-        return String(format: "R$ %.2f", suggestedPrice)
-    }
-    
-    var formattedDate: String {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.locale = Locale(identifier: "pt_BR")
-        return formatter.string(from: availableDate ?? Date())
-    }
-}
 
 // MARK: - Mock Data Extension
 extension Service {
@@ -63,3 +42,5 @@ extension Service {
         return services
     }
 }
+
+

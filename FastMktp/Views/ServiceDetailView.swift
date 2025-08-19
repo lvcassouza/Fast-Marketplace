@@ -22,7 +22,7 @@ struct ServiceDetailView: View {
                 VStack(alignment: .leading, spacing: 20) {
                     // Header with category and price
                     HStack {
-                        Text(service.category)
+                        Text(service.category!)
                             .font(.subheadline)
                             .fontWeight(.medium)
                             .padding(.horizontal, 12)
@@ -40,12 +40,12 @@ struct ServiceDetailView: View {
                     }
                     
                     // Title
-                    Text(service.title)
+                    Text(service.title!)
                         .font(.title)
                         .fontWeight(.bold)
                     
                     // Description
-                    Text(service.serviceDescription)
+                    Text(service.serviceDescription!)
                         .font(.body)
                         .lineSpacing(4)
                     
@@ -61,11 +61,11 @@ struct ServiceDetailView: View {
                                 .foregroundColor(.blue)
                             
                             VStack(alignment: .leading) {
-                                Text(service.providerName)
+                                Text(service.providerName!)
                                     .font(.body)
                                     .fontWeight(.medium)
                                 
-                                Text(service.location)
+                                Text(service.location!)
                                     .font(.caption)
                                     .foregroundColor(.secondary)
                             }
@@ -84,7 +84,7 @@ struct ServiceDetailView: View {
                         HStack {
                             Label(service.formattedDate, systemImage: "calendar")
                             Spacer()
-                            Label(service.availableTime, systemImage: "clock")
+                            Label(service.availableTime!, systemImage: "clock")
                         }
                         .font(.body)
                         .foregroundColor(.secondary)
@@ -141,7 +141,7 @@ struct ServiceDetailView: View {
                 dismiss()
             }
         } message: {
-            Text("Sua solicitação foi enviada para \(service.providerName). Você receberá uma notificação quando houver resposta.")
+            Text("Sua solicitação foi enviada para \(service.providerName ?? "Erro 301: Solicitação não enviada. Por favor, tente novamente mais tarde."). Você receberá uma notificação quando houver resposta.")
         }
     }
 }
@@ -162,7 +162,7 @@ struct ServiceRequestSheet: View {
                         .font(.headline)
                         .fontWeight(.semibold)
                     
-                    Text(service.title)
+                    Text(service.title!)
                         .font(.body)
                         .foregroundColor(.secondary)
                     

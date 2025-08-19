@@ -25,7 +25,7 @@ class ProfileViewModel: ObservableObject {
         myServices = coreDataManager.fetchServices().filter { $0.providerName == user.name }
         
         // Load service requests made by user
-        myRequests = coreDataManager.fetchServiceRequests().filter { $0.requester?.id == user.id }
+        myRequests = coreDataManager.fetchServiceRequests().filter { $0.userRequesting?.id == user.id }
     }
     
     func deleteService(_ service: Service) {

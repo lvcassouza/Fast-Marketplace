@@ -35,9 +35,9 @@ class ServicesViewModel: ObservableObject {
         // Filter by search text
         if !searchText.isEmpty {
             filtered = filtered.filter { service in
-                service.title.localizedCaseInsensitiveContains(searchText) ||
-                service.serviceDescription.localizedCaseInsensitiveContains(searchText) ||
-                service.providerName.localizedCaseInsensitiveContains(searchText)
+                service.title!.localizedCaseInsensitiveContains(searchText) ||
+                service.serviceDescription!.localizedCaseInsensitiveContains(searchText) ||
+                service.providerName!.localizedCaseInsensitiveContains(searchText)
             }
         }
         

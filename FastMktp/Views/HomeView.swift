@@ -125,7 +125,7 @@ struct ServiceCard: View {
             VStack(alignment: .leading, spacing: 12) {
                 // Header with category and price
                 HStack {
-                    Text(service.category)
+                    Text(service.category ?? "Sem Categoria")
                         .font(.caption)
                         .fontWeight(.medium)
                         .padding(.horizontal, 8)
@@ -144,12 +144,12 @@ struct ServiceCard: View {
                 
                 // Title and description
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(service.title)
+                    Text(service.title ?? "Sem Título")
                         .font(.headline)
                         .fontWeight(.semibold)
                         .lineLimit(2)
                     
-                    Text(service.serviceDescription)
+                    Text(service.serviceDescription ?? "Sem Descrição")
                         .font(.body)
                         .foregroundColor(.secondary)
                         .lineLimit(3)
@@ -157,7 +157,7 @@ struct ServiceCard: View {
                 
                 // Provider and date info
                 HStack {
-                    Label(service.providerName, systemImage: "person.circle")
+                    Label(service.providerName ?? "Usuário Anônimo", systemImage: "person.circle")
                         .font(.caption)
                         .foregroundColor(.secondary)
                     
